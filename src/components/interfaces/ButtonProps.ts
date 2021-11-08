@@ -1,5 +1,6 @@
 export interface ButtonProps {
     o?: {
+        onClick: Function,
         text: String,
         type?: String,
         variant?: 'text' | 'outlined' | 'contained',

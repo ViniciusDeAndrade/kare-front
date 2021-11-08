@@ -1,17 +1,21 @@
+import { Button } from "@material-ui/core";
 import { ButtonProps } from '../interfaces/ButtonProps';
 import { StyledButton } from './styles';
 
-const click = () => alert('cliquei novamente');
 
 function Botao (props: ButtonProps) {
     return (
-        <StyledButton
+        <StyledButton>
+            <Button
             variant={props.o?.variant} 
-            color={props.o?.color} 
-            onClick={click}
-        >
-            {props.o?.text}
+            
+            color={props.o?.color}
+            onClick={event => props.o?.onClick("quero")}
+            >
+                {props.o?.text}
+            </Button>
         </StyledButton>
+        
     );
 }
 

@@ -11,5 +11,6 @@ export const Section = styled.section`
 
 export const ButtonAlign = styled.div`
     margin: 0 20px;
+    display: flex;
 `
 
