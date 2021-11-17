@@ -9,40 +9,39 @@ const handleModal = (modalState: boolean, modalFunc: Function) => modalFunc(!mod
 export default function Header () {
     const [modalLogin, showModalLogin] = useState(false);
     const [modalSignIn, showModalSignIn] = useState(false);
+
     return (
     
-        <Section>
-            <Typography variant="h6" gutterBottom component="div">
-                {/* <img src={kare} alt="Kare"/> */}
-                Kare Project
-            </Typography >
-            <ButtonAlign>
-                <Botao o={
-                    ({
-                        text:"login", 
-                        color:"primary", 
-                        variant:"contained",
-                        onClick: () => handleModal(modalLogin, showModalLogin)
-                    })
-                }/>
-                <Botao o={
-                    ({
-                        onClick: () => handleModal(modalSignIn, showModalSignIn),
-                        text:"sign up", 
-                        color:"primary", 
-                        variant:"outlined"
-                    })
-                }/>
-            </ButtonAlign>
-            {
-                modalLogin && (<Popup show={modalLogin} hide={showModalLogin} title="Login" body="enter your credentials"/>)
-            }
+            <>
+                <Section>
+                    <Typography variant="h6" gutterBottom component="div">
+                        {/* <img src={kare} alt="Kare"/> */}
+                        Kare Project
+                    </Typography >
+                    <ButtonAlign>
+                        <Botao o={
+                            ({
+                                text:"login", 
+                                color:"primary", 
+                                variant:"contained",
+                                onClick: () => handleModal(modalLogin, showModalLogin)
+                            })
+                        }/>
+                        <Botao o={
+                            ({
+                                onClick: () => handleModal(modalSignIn, showModalSignIn),
+                                text:"sign up", 
+                                color:"primary", 
+                                variant:"outlined"
+                            })
+                        }/>
+                    </ButtonAlign>
 
-            {
-                modalSignIn && (<Popup show={modalSignIn} hide={showModalSignIn}  title="Sign in" body="set your credentials"/>)
-            }
+                </Section>
 
-        </Section>
-    
+                <Popup show={modalLogin} hide={showModalLogin} title="Login" body="enter your credentials"/>     
+                <Popup show={modalSignIn} hide={showModalSignIn}  title="Sign in" body="set your credentials"/>
+                
+            </>
         );
     }
