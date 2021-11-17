@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core";
+import { Button } from '@material-ui/core';
 import { ButtonProps } from '../interfaces/ButtonProps';
 import { StyledButton } from './styles';
 
@@ -8,7 +8,6 @@ function Botao (props: ButtonProps) {
         <StyledButton>
             <Button
             variant={props.o?.variant} 
-            
             color={props.o?.color}
             onClick={event => props.o?.onClick("quero")}
             >
