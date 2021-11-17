@@ -35,11 +35,11 @@ export default function Header () {
                 }/>
             </ButtonAlign>
             {
-                modalLogin && (<Popup show={modalLogin} hide={showModalLogin}/>)
+                modalLogin && (<Popup show={modalLogin} hide={showModalLogin} title="Login" body="enter your credentials"/>)
             }
 
             {
-                modalSignIn && (<Popup show={modalSignIn} hide={showModalSignIn}/>)
+                modalSignIn && (<Popup show={modalSignIn} hide={showModalSignIn}  title="Sign in" body="set your credentials"/>)
             }
 
         </Section>
