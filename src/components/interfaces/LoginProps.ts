@@ -1,6 +1,4 @@
 export interface LoginProps {
-    // o? : {
-        show: boolean,
-        hide: Function
-    // }
+    show: boolean,
+    hide: Function
 }

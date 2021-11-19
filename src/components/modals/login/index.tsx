@@ -5,12 +5,18 @@ import {
     Grid, 
     Input 
 } from '@mui/material';
+import { debounce } from 'lodash';
 
 import Botao from '../../button';
 import { DividerStyled } from '../styles';
 import { LoginProps } from '../../interfaces/LoginProps';
 
  
+const handleChange = debounce((formInput: string, value: String) => {
+    console.log(formInput, value)
+}, 2000);
+
+
 const Login = (props: LoginProps) => {
     return ( 
         <Modal
@@ -21,6 +27,7 @@ const Login = (props: LoginProps) => {
             >
             <Box sx={
                 {
+
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
@@ -32,26 +39,36 @@ const Login = (props: LoginProps) => {
                     p: 4,
                 }
             }>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+                <Typography 
+                    id="modal-modal-title" 
+                    variant="h6" 
+                    component="h2"
+                >
                     Login
                 </Typography>
                 
-                <Grid container spacing={2}>
+                <Grid container spacing={4}>
                     
                     <Grid item xs={12}>
                         <Input 
+                            fullWidth
                             name="email"
                             placeholder="email"
                             type="email"
-                            onChange={() => alert("email")}
+                            onChange={
+                                event => handleChange('email', event.target.value)
+                            }
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <Input 
+                            fullWidth
                             name="password"
                             placeholder="password"
                             type="password"
-                            onChange={() => alert("password")}
+                            onChange={
+                                event => handleChange('password', event.target.value)
+                            }
                         />
                     </Grid>
 
