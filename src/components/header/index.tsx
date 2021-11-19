@@ -1,7 +1,8 @@
-import { Section, ButtonAlign } from './styles';
+import { HeaderStyled, ButtonAlign } from './styles';
 import Botao from '../button';
 import Typography  from '@material-ui/core/Typography';
-import Popup from '../modal';
+import Popup from '../modals';
+import Login from '../modals/login';
 import { useState } from 'react';
 
 const handleModal = (modalState: boolean, modalFunc: Function) => modalFunc(!modalState);
@@ -13,7 +14,7 @@ export default function Header () {
     return (
     
             <>
-                <Section>
+                <HeaderStyled>
                     <Typography variant="h6" gutterBottom component="div">
                         {/* <img src={kare} alt="Kare"/> */}
                         Kare Project
@@ -37,9 +38,9 @@ export default function Header () {
                         }/>
                     </ButtonAlign>
 
-                </Section>
+                </HeaderStyled>
 
-                <Popup show={modalLogin} hide={showModalLogin} title="Login" body="enter your credentials"/>     
+                <Login show={modalLogin} hide={showModalLogin} />     
                 <Popup show={modalSignIn} hide={showModalSignIn}  title="Sign in" body="set your credentials"/>
                 
             </>

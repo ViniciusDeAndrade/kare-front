@@ -5,7 +5,6 @@ import { Divider } from '@material-ui/core';
 
 export const BoxStyled = styled(Box)`
     && {
-
         position: 'absolute',
         top: '50%',
         left: '50%',

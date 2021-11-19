@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Section = styled.section`
+export const HeaderStyled = styled.header`
     background-color: lightgray;
     color: red;
     padding: 10px;
