@@ -1,18 +1,18 @@
-import { HeaderStyled, ButtonAlign } from './styles';
-import Botao from '../button';
-import Typography  from '@material-ui/core/Typography';
-import Popup from '../modals';
-import Login from '../modals/login';
 import { useState } from 'react';
+import { Typography }  from '@mui/material';
+import { useRouter } from 'next/router';
+import Btn from '../button';
+import Login from '../modals/login';
+import { HeaderStyled, ButtonAlign } from './styles';
+
 
 const handleModal = (modalState: boolean, modalFunc: Function) => modalFunc(!modalState);
 
 export default function Header () {
+    const router = useRouter();
     const [modalLogin, showModalLogin] = useState(false);
-    const [modalSignIn, showModalSignIn] = useState(false);
 
     return (
-    
             <>
                 <HeaderStyled>
                     <Typography variant="h6" gutterBottom component="div">
@@ -20,7 +20,7 @@ export default function Header () {
                         Kare Project
                     </Typography >
                     <ButtonAlign>
-                        <Botao o={
+                        <Btn o={
                             ({
                                 text:"login", 
                                 color:"primary", 
@@ -28,9 +28,9 @@ export default function Header () {
                                 onClick: () => handleModal(modalLogin, showModalLogin)
                             })
                         }/>
-                        <Botao o={
+                        <Btn o={
                             ({
-                                onClick: () => handleModal(modalSignIn, showModalSignIn),
+                                onClick: () => router.push('/Signup'),
                                 text:"sign up", 
                                 color:"primary", 
                                 variant:"outlined"
@@ -41,7 +41,6 @@ export default function Header () {
                 </HeaderStyled>
 
                 <Login show={modalLogin} hide={showModalLogin} />     
-                <Popup show={modalSignIn} hide={showModalSignIn}  title="Sign in" body="set your credentials"/>
                 
             </>
         );

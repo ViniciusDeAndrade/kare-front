@@ -3,7 +3,7 @@ import { ButtonProps } from '../interfaces/ButtonProps';
 import { StyledButton } from './styles';
 
 
-function Botao (props: ButtonProps) {
+function Btn (props: ButtonProps) {
     return (
         <StyledButton>
             <Button
@@ -18,4 +18,4 @@ function Botao (props: ButtonProps) {
     );
 }
 
-export default Botao;
+export default Btn;

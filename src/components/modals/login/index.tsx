@@ -8,12 +8,11 @@ import {
 import { useState } from 'react';
 
 
-import Botao from '../../button';
+import Btn from '../../button';
 import { LoginProps } from '../../interfaces/LoginProps';
 
 
-const handleChange = (fun: Function, value: String) => 
-    fun(value);
+const handleChange = (fun: Function, value: String) => fun(value);
 
 
 const Login = (props: LoginProps) => {
@@ -76,7 +75,7 @@ const Login = (props: LoginProps) => {
                     </Grid>
 
                     <Grid item xs={6}>
-                        <Botao
+                        <Btn
                             o={
                                 ({
                                     onClick: () => props.hide(),
@@ -89,7 +88,7 @@ const Login = (props: LoginProps) => {
                     </Grid>
 
                     <Grid item xs={6}>
-                        <Botao
+                        <Btn
                             o={
                                 ({
                                     onClick: () => console.log(email, password),
