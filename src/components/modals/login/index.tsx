@@ -5,19 +5,20 @@ import {
     Grid, 
     Input 
 } from '@mui/material';
-import { debounce } from 'lodash';
+import { useState } from 'react';
+
 
 import Botao from '../../button';
-import { DividerStyled } from '../styles';
 import { LoginProps } from '../../interfaces/LoginProps';
 
- 
-const handleChange = debounce((formInput: string, value: String) => {
-    console.log(formInput, value)
-}, 2000);
+
+const handleChange = (fun: Function, value: String) => 
+    fun(value);
 
 
 const Login = (props: LoginProps) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     return ( 
         <Modal
             open={props.show}
@@ -52,22 +53,24 @@ const Login = (props: LoginProps) => {
                     <Grid item xs={12}>
                         <Input 
                             fullWidth
+                            value={email}
                             name="email"
                             placeholder="email"
                             type="email"
                             onChange={
-                                event => handleChange('email', event.target.value)
+                                event => handleChange(setEmail, event.target.value)
                             }
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <Input 
                             fullWidth
+                            value={password}
                             name="password"
                             placeholder="password"
                             type="password"
                             onChange={
-                                event => handleChange('password', event.target.value)
+                                event => handleChange(setPassword, event.target.value)
                             }
                         />
                     </Grid>
@@ -89,7 +92,7 @@ const Login = (props: LoginProps) => {
                         <Botao
                             o={
                                 ({
-                                    onClick: () => props.hide(),
+                                    onClick: () => console.log(email, password),
                                     text: "login",
                                     color: "primary",
                                     variant: "contained"
