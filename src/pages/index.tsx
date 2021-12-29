@@ -1,15 +1,13 @@
-import Header from "../components/header";
+import { useState } from "react";
 import WelcomePage from "../components/home";
 
-const loggedHomePage = false;
-
 export default function HomePage(): JSX.Element {
+  const [loggedUser, setLoggedUser] = useState(false);
   return (
     <>
-      {loggedHomePage ? 
+      {loggedUser ? 
           (
             <>
-              <Header />
               <div>We are going to create a new experience</div>
             </>
           )  : (
