@@ -1,8 +1,15 @@
 import { FunctionComponent } from 'react';
 import { 
-    Link,
-    Grid
+    AccountCircle,
+    Search
+} from '@mui/icons-material';
+import { 
+    Autocomplete,
+    TextField,
+    Box,
+    Typography
 } from "@mui/material";
+import { HeaderStyled, ToolBarStyled } from './styles';
 
 interface DashboardHeaderProps {
     
@@ -11,15 +18,9 @@ interface DashboardHeaderProps {
 const items = [
     {name : "Profile", href: ""},
     {name : "Balance", href: ""}
-]
+];
 
- 
-const DashboardHeader: FunctionComponent<DashboardHeaderProps> = () => {
-    return (
-        <Grid container >
-            <Grid item xs={12}>
-                <div style={{marginBottom: '10px', padding: "20px", backgroundColor: "gray"}}>
-                    {items.map(
+ {/* {items.map(
                         (item) =>  <Link 
                             margin='20px'
                             color="textPrimary"
@@ -29,10 +30,28 @@ const DashboardHeader: FunctionComponent<DashboardHeaderProps> = () => {
                                     {item.name}
                             </Link>
                         )
-                    } 
-                </div>
-            </Grid>
-        </Grid>
+                    }  */}
+
+ 
+const DashboardHeader: FunctionComponent<DashboardHeaderProps> = () => {
+    return (
+        <HeaderStyled position='sticky' >
+            <ToolBarStyled >
+                    <Typography variant="h3" color="orangered">Kare</Typography>
+                    <Autocomplete 
+                        options={items.map(item => item.name)}
+                        sx={ {width:400} }
+                        renderInput={params => (
+                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                                <Search sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                                <TextField {...params} id="input-with-sx" label="Search" variant="standard" />
+                            </Box>
+                            
+                        )}
+                    />
+                    <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} fontSize='large'/>
+            </ToolBarStyled>
+        </HeaderStyled>
     );
 }
  
